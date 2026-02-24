@@ -8,9 +8,10 @@ interface BorderRendererProps {
   size: number;
   progress?: number;
   isActive?: boolean;
+  shape?: 'circle' | 'square';
 }
 
-export const BorderRenderer: React.FC<BorderRendererProps> = ({ type, color, secondaryColor, size, progress = 1, isActive }) => {
+export const BorderRenderer: React.FC<BorderRendererProps> = ({ type, color, secondaryColor, size, progress = 1, isActive, shape = 'circle' }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -33,8 +34,9 @@ export const BorderRenderer: React.FC<BorderRendererProps> = ({ type, color, sec
       secondaryColor,
       size,
       progress,
+      shape: shape as 'circle' | 'square',
     });
-  }, [type, color, secondaryColor, size, progress]);
+  }, [type, color, secondaryColor, size, progress, shape]);
 
   return (
     <canvas

@@ -218,6 +218,7 @@ export default function App() {
           secondaryColor: selectedBorder.secondaryColor,
           size,
           progress,
+          shape: 'circle',
         });
 
         resolve(canvas.toDataURL('image/png'));
@@ -300,6 +301,7 @@ export default function App() {
           secondaryColor: selectedBorder.secondaryColor,
           size,
           progress,
+          shape: 'square',
         });
 
         frames.push(canvas.toDataURL('image/png'));
@@ -478,6 +480,7 @@ export default function App() {
                     size={window.innerWidth < 768 ? 256 : 384} 
                     progress={progress}
                     isActive={true}
+                    shape="circle"
                   />
                 </div>
 
@@ -619,6 +622,7 @@ export default function App() {
                       size={window.innerWidth < 768 ? 256 : 384} 
                       progress={progress}
                       isActive={true}
+                      shape="square"
                     />
                   </div>
                 )}
@@ -781,6 +785,7 @@ export default function App() {
                   secondaryColor={preset.secondaryColor}
                   size={64} 
                   progress={0.75} 
+                  shape={mode === 'video' ? 'square' : 'circle'}
                 />
                 {selectedBorder.id === preset.id && (
                   <motion.div
@@ -828,6 +833,7 @@ export default function App() {
                     secondaryColor={preset.secondaryColor}
                     size={64} 
                     progress={0.75} 
+                    shape={mode === 'video' ? 'square' : 'circle'}
                   />
                   {selectedBorder.id === preset.id && (
                     <motion.div
